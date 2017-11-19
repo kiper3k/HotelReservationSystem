@@ -10,13 +10,19 @@ buildscript {
     
 }
 
+sourceSets.main.resources.includes += "**/*.csv"
+sourceSets.test.resources.includes += "**/*.csv"
+
 repositories {
 	jcenter()
 	mavenCentral()
 }
 
 dependencies {
-    compile "com.opencsv:opencsv:4.0"
+    compile "com.fasterxml.jackson.dataformat:jackson-dataformat-csv:2.9.2"
+    compile "com.fasterxml.jackson.module:jackson-module-parameter-names:2.9.2"
+    compile "com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.9.2"
+    compile "com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.9.2"
 
     testCompile "junit:junit:4.12"
 }

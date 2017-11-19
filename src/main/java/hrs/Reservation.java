@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package hotelreservationsystem;
+package hrs;
 
 /**
  *
  * @author kiper
  */
-public interface RoomInfo {
+public interface Reservation {
     
 }

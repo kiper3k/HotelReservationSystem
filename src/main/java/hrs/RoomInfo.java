@@ -3,17 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package hotelreservationsystem;
-
-import java.util.List;
+package hrs;
 
 /**
  *
  * @author kiper
  */
-public interface ReservationInfo {
-    
-    Period getPeriod();
-    List<RoomInfo> getRoomInfo();
+public interface RoomInfo {
     
 }

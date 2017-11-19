@@ -3,7 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package hotelreservationsystem;
+package hrs;
+
+import hrs.exception.UncaughtExceptionHandlerImpl;
 
 /**
  *
@@ -15,6 +17,7 @@ public class HotelReservationSystem {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        Thread.setDefaultUncaughtExceptionHandler(new UncaughtExceptionHandlerImpl());
         // TODO code application logic here
     }
     
