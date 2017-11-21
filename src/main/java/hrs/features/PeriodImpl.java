@@ -1,4 +1,4 @@
-package hrs;
+package hrs.features;
 
 import java.time.LocalDate;
 import java.util.Objects;

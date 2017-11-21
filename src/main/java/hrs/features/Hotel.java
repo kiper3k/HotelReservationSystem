@@ -1,6 +1,9 @@
 
-package hrs;
+package hrs.features;
 
+import hrs.features.client.Client;
+
+import java.io.IOException;
 import java.io.Reader;
 import java.io.Writer;
 import java.util.List;
@@ -10,9 +13,9 @@ import java.util.List;
  */
 public interface Hotel {
 
-    void loadRooms(Reader reader);
+    void loadRooms(Reader reader) throws IOException;
 
-    void saveRooms(Writer writer);
+    void saveRooms(Writer writer) throws IOException;
 
     void addRoom(String name, int nOfBeds);
 

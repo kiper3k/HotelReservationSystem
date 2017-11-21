@@ -10,6 +10,8 @@ buildscript {
     
 }
 
+mainClassName = "hrs.HotelReservationSystem"
+
 sourceSets.main.resources.includes += "**/*.csv"
 sourceSets.test.resources.includes += "**/*.csv"
 
@@ -23,6 +25,8 @@ dependencies {
     compile "com.fasterxml.jackson.module:jackson-module-parameter-names:2.9.2"
     compile "com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.9.2"
     compile "com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.9.2"
+
+    compile "org.slf4j:slf4j-simple:1.7.25"
 
     testCompile "junit:junit:4.12"
 }
