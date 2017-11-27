@@ -67,6 +67,10 @@ public class HotelImpl implements Hotel {
     public boolean makeReservation(Client client, ReservationInfo request) {
         return false;
     }
+    
+    public List<RoomInfo> getRooms() {
+        return roomInfoStore;
+    }
 }
 
 class RoomInfoCsvDeserializer extends CsvDeserializerImpl<RoomInfo> {
