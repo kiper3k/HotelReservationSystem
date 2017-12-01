@@ -78,6 +78,10 @@ public class HotelImpl implements Hotel {
     private Predicate<RoomInfo> nameEqualTo(String name) {
         return roomInfo -> Objects.equals(roomInfo.getRoomName(), name);
     }
+
+    public List<RoomInfo> getRooms() {
+        return roomInfoStore;
+    }
 }
 
 class RoomInfoCsvDeserializer extends CsvDeserializerImpl<RoomInfo> {
