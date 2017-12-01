@@ -1,4 +1,4 @@
-package hrs.features;
+package hrs.features.shared;
 
 import java.time.LocalDate;
 
@@ -9,4 +9,7 @@ public interface Period {
     LocalDate getStartDate();
 
     LocalDate getEndDate();
+
+    boolean isIncluded(LocalDate localDate);
 }
+

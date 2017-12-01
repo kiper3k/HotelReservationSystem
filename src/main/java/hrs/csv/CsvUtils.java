@@ -5,7 +5,7 @@ package hrs.csv;
  * @since 19.11.2017
  */
 public final class CsvUtils {
-    public static final char SEPARATOR_DEFAULT = ';';
+    public static final char SEPARATOR_DEFAULT = ',';
 
     private CsvUtils() {
     }

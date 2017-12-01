@@ -1,4 +1,4 @@
-package hrs.features;
+package hrs.features.shared;
 
 /**
  * @author kiper
@@ -36,4 +36,6 @@ public interface RoomInfo {
     int getNumberOfOccupiedBeds();
 
     void setNumberOfOccupiedBeds(int numberOfOccupiedBeds);
+
+    float getPrice();
 }

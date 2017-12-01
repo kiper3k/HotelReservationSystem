@@ -1,4 +1,4 @@
-package hrs.features;
+package hrs.features.shared;
 
 import hrs.exception.ApplicationException;
 import hrs.util.Strings;
@@ -16,9 +16,12 @@ public class RoomInfoImpl implements RoomInfo {
 
     private int numberOfOccupiedBeds;
 
-    public RoomInfoImpl(String roomName, int numberOfBeds) {
+    private float price;
+
+    public RoomInfoImpl(String roomName, int numberOfBeds, float price) {
         setRoomName(roomName);
         setNumberOfBeds(numberOfBeds);
+        setPrice(price);
     }
 
     @Override
@@ -61,5 +64,14 @@ public class RoomInfoImpl implements RoomInfo {
     @Override
     public void setNumberOfOccupiedBeds(int numberOfOccupiedBeds) {
         this.numberOfOccupiedBeds = numberOfOccupiedBeds;
+    }
+
+    @Override
+    public float getPrice() {
+        return price;
+    }
+
+    public void setPrice(float price) {
+        this.price = price;
     }
 }
