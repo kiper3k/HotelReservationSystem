@@ -1,10 +1,11 @@
 package hrs.features;
 
-import hrs.Config;
 import hrs.csv.serialization.CsvDeserializerImpl;
 import hrs.csv.serialization.CsvSerializerImpl;
 import hrs.exception.ApplicationException;
 import hrs.features.client.Client;
+import hrs.features.client.ClientManager;
+import hrs.features.client.ClientManagerImpl;
 import hrs.features.reservation.ReservationInfo;
 import hrs.features.shared.*;
 
@@ -29,7 +30,9 @@ public class HotelImpl implements Hotel {
 
     private final List<RoomInfo> roomInfoStore = new ArrayList<>();
 
-    private final PriceService priceService = new PriceServiceImpl(Config.SEASONAL_PRICES);
+    private final PriceService priceService = PriceServiceImpl.getInstance();
+
+    private final ClientManager clientManager = ClientManagerImpl.getInstance();
 
     @Override
     public void loadRooms(Reader reader) throws IOException {
@@ -53,7 +56,7 @@ public class HotelImpl implements Hotel {
         if (nameIsUnique) {
             roomInfoStore.add(new RoomInfoImpl(name, nOfBeds, price));
         } else {
-            throw new ApplicationException("Nazwa pokoju '{}' jest juz zajeta.", name);
+            throw new ApplicationException("Nazwa pokoju '{0}' jest juz zajeta.", name);
         }
     }
 
@@ -64,6 +67,11 @@ public class HotelImpl implements Hotel {
 
     @Override
     public List<ReservationInfo> findFreeRooms(Period period, List<Integer> rooms) {
+        LocalDate startDate = period.getStartDate();
+        LocalDate endDate = period.getEndDate();
+
+
+
         return null;
     }
 

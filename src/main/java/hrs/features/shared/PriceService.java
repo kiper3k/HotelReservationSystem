@@ -14,10 +14,6 @@ public interface PriceService {
 
     void savePrices(Writer writer) throws IOException;
 
-    void loadPrices() throws IOException;
-
-    void savePrices() throws IOException;
-
     void addSeasonalPrice(SeasonalPrice seasonalPrice);
 
     float getPrice(RoomInfo roomInfo, LocalDate date);

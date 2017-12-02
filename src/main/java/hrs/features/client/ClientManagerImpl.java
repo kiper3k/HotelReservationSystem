@@ -22,11 +22,21 @@ import java.util.function.Predicate;
 public class ClientManagerImpl implements ClientManager {
     private static final Logger log = LoggerFactory.getLogger(ClientManagerImpl.class);
 
+    private static ClientManagerImpl instance;
+
     private ClientCsvDeserializer deserializer = new ClientCsvDeserializer();
 
     private ClientCsvSerializer serializer = new ClientCsvSerializer();
 
     private List<Client> clients = new ArrayList<>();
+
+    public static ClientManager getInstance() {
+        if (instance == null) {
+            instance = new ClientManagerImpl();
+        }
+
+        return instance;
+    }
 
     @Override
     public void loadClients(Reader reader) throws IOException {
@@ -48,7 +58,7 @@ public class ClientManagerImpl implements ClientManager {
             clients.add(client);
         } else {
             throw new ApplicationException(
-                    "Client {} {} already exists!",
+                    "Client {0} {1} already exists!",
                     client.getFirstName(),
                     client.getLastName()
             );
