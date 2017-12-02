@@ -10,6 +10,8 @@ public interface Period {
 
     LocalDate getEndDate();
 
-    boolean isIncluded(LocalDate localDate);
+    boolean isDayIncluded(LocalDate localDate);
+
+    boolean isPeriodIncluded(Period period);
 }
 

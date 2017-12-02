@@ -31,6 +31,7 @@ public class HotelImpl implements Hotel {
 
     private final PriceService priceService = new PriceServiceImpl(Config.SEASONAL_PRICES);
 
+
     @Override
     public void loadRooms(Reader reader) throws IOException {
         roomInfoStore.clear();

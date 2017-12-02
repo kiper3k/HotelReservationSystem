@@ -62,7 +62,7 @@ public class PriceServiceImpl implements PriceService {
     @Override
     public float getPrice(RoomInfo roomInfo, LocalDate date) {
         return seasonalPriceStore.stream()
-                .filter(seasonalPrice -> seasonalPrice.getPeriod().isIncluded(date))
+                .filter(seasonalPrice -> seasonalPrice.getPeriod().isDayIncluded(date))
                 .findFirst()
                 .map(SeasonalPrice::getPriceMultiplier)
                 .map(priceMultiplier -> roomInfo.getPrice() * priceMultiplier)
