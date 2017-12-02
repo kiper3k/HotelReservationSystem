@@ -14,7 +14,7 @@ import java.io.Reader;
  * @author Marta Motyka
  * @since 14.11.2017
  */
-public abstract class CsvDeserializerImpl<T> implements CsvDeserializer<T> {
+public class CsvDeserializerImpl<T> implements CsvDeserializer<T> {
 
     private final Class<T> type;
 

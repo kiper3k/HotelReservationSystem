@@ -38,9 +38,31 @@ public class PeriodImpl implements Period {
     }
 
     @Override
-    public boolean isIncluded(LocalDate date) {
+    public boolean isDayIncluded(LocalDate date) {
         Objects.requireNonNull(date, "Param date must not be null!");
         return startDate.isEqual(date) || (date.isAfter(startDate) && date.isBefore(endDate));
+    }
+
+    @Override
+    public boolean isPeriodIncluded(Period period) {
+        LocalDate startDate = period.getStartDate();
+        LocalDate endDate = period.getEndDate();
+
+        // sprawdzamy czy zawiera sie w okresie dzien pierwszy lub ostatni
+        if (isDayIncluded(startDate) || isDayIncluded(endDate)) {
+            return true;
+        }
+
+        // sprawzdamy czy ktorys z dni pomiedzy pierwszym a ostatnim zaiwera sie w okresie
+        int days = startDate.until(endDate).getDays();
+
+        for (int i = 1; i <= days - 1; i++) {
+            if (isDayIncluded(startDate.plusDays(i))) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     @Override

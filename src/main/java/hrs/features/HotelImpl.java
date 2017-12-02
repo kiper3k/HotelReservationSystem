@@ -34,6 +34,7 @@ public class HotelImpl implements Hotel {
 
     private final ClientManager clientManager = ClientManagerImpl.getInstance();
 
+
     @Override
     public void loadRooms(Reader reader) throws IOException {
         roomInfoStore.clear();
