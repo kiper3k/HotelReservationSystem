@@ -21,7 +21,7 @@ public class UncaughtExceptionHandlerImpl implements Thread.UncaughtExceptionHan
             String message = applicationException.getMessage();
             Object[] args = applicationException.getArgs();
 
-            log.error(MessageFormat.format(message, args), e);
+            log.error(MessageFormat.format(message, args));
             return;
         }
 
