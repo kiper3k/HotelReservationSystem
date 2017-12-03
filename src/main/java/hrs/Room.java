@@ -46,8 +46,8 @@ public class Room {
     }
     
     public String toString(){
-        return "Id: " + this.id + "\nNumber of people: " + this.nbOfPeople
-                + "\nPrice: " + this.price;
+        return "Id: " + this.id + "\tNumber of people: " + this.nbOfPeople
+                + "\tPrice: " + this.price;
     }
     
 }

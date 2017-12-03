@@ -27,4 +27,9 @@ public class ReservationInfoImpl implements ReservationInfo {
     public RoomInfo getRoomInfo() {
         return roomInfo;
     }
+
+    @Override
+    public long getClientId() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

@@ -1,3 +1,3 @@
-id,firstName,lastName
-1,Jan,Kowalski
-2,Krzysztof,Nowak
+id,firstName,lastName,login,password
+1,Jan,Kowalski,janek,1234
+2,Krzysztof,Nowak,krzys,456

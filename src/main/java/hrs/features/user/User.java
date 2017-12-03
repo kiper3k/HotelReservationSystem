@@ -6,16 +6,23 @@ package hrs.features.user;
  */
 public class User {
     private String name;
-
+    private String login;
     private String password;
-
     private Privileges privileges;
 
     private User() {
     }
-
-    public User(String name, String password, Privileges privileges) {
+    
+    public User(String name, String login, String password) {
         this.name = name;
+        this.login = login;
+        this.password = password;
+        this.privileges = privileges;
+    }
+
+    public User(String name, String login, String password, Privileges privileges) {
+        this.name = name;
+        this.login = login;
         this.password = password;
         this.privileges = privileges;
     }
@@ -26,6 +33,14 @@ public class User {
 
     public void setName(String name) {
         this.name = name;
+    }
+    
+    public String getLogin(){
+        return this.login;
+    }
+    
+    public void setLogin(String login){
+        this.login = login;
     }
 
     public String getPassword() {

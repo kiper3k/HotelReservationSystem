@@ -22,13 +22,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import hrs.features.user.User;
+
 /**
  * @author kiper
  * @author Marta Motyka
  */
 public class HotelReservationSystem {
-
-    private static final Logger log = LoggerFactory.getLogger(HotelReservationSystem.class);
 
     /**
      * This is main application entry.
@@ -40,9 +40,20 @@ public class HotelReservationSystem {
         List<Room> rooms = new ArrayList<Room>();
         
         CSVUtilsRooms csvUtilsRooms = new CSVUtilsRooms();
-        
         rooms = csvUtilsRooms.readCSV();
         
+        for(int i=0; i<rooms.size(); i++){
+            System.out.println(rooms.get(i));
+        }
+        
+        List<User> users = new ArrayList<User>();
+        
+        CSVUtilsUsers csvUtilsUsers = new CSVUtilsUsers();
+        users = csvUtilsUsers.readCSV();
+        
+//        for(int i=0; i<users.size(); i++){
+//            System.out.println(users.get(i));
+//        }
         
         
 //        Room r = new Room(5,5,50);

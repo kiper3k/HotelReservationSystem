@@ -10,7 +10,7 @@ buildscript {
     
 }
 
-mainClassName = "hrs.HotelReservationSystem"
+mainClassName = "hrs.Application"
 
 sourceSets.main.resources.includes += "**/*.csv"
 sourceSets.test.resources.includes += "**/*.csv"

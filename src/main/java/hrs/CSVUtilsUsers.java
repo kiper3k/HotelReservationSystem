@@ -12,12 +12,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import hrs.features.user.User;
+
 /**
  *
  * @author kiper
  */
-public class CSVUtilsRooms {
-//        implements CSVUtils {
+public class CSVUtilsUsers {
     
     String csvFile;
     BufferedReader br;
@@ -25,17 +26,17 @@ public class CSVUtilsRooms {
     String cvsSplitBy;
     List list;
     
-    CSVUtilsRooms(){
-        this.csvFile = "/home/kiper/Dokumenty/UJ/Projektowanie obiektowe/HotelReservationSystem/src/test/resources/rooms.csv";
+    CSVUtilsUsers(){
+        this.csvFile = "/home/kiper/Dokumenty/UJ/Projektowanie obiektowe/HotelReservationSystem/src/test/resources/users.csv";
         this.br = null;
         this.cvsSplitBy = ",";
     }
     
     public List readCSV(){
-        List<Room> rooms = new ArrayList<Room>();
-        int id;
-        int nbOfPeople;
-        float price;
+        List<User> users = new ArrayList<User>();
+        String name;
+        String login;
+        String password;
         
         try {
 
@@ -43,15 +44,15 @@ public class CSVUtilsRooms {
             br.readLine(); // reads the header line
             while ((line = br.readLine()) != null) {
                 // use comma as separator
-                String[] room = line.split(cvsSplitBy);
-                id = Integer.parseInt(room[0]);
-                nbOfPeople = Integer.parseInt(room[1]);
-                price = Float.parseFloat(room[2]);
+                String[] user = line.split(cvsSplitBy);
+                name = user[2];
+                login = user[3];
+                password = user[4];
 //                System.out.println(new Room(Integer.parseInt(room[0]),
 //                        Integer.parseInt(room[1]), 
 //                        Float.parseFloat(room[2])));
                 
-                rooms.add(new Room(id, nbOfPeople, price));
+                users.add(new User(name, login, password));
 
             }
 
@@ -69,7 +70,7 @@ public class CSVUtilsRooms {
             }
         }
         
-        return rooms;
+        return users;
         
     }
     
