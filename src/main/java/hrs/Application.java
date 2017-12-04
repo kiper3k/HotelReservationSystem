@@ -29,41 +29,41 @@ public class Application {
      *
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        Application application = new Application();
-        application.run(args);
-    }
+//    public static void main(String[] args) {
+//        Application application = new Application();
+//        application.run(args);
+//    }
+//
+//    public void run(String[] args) {
+//        Thread.setDefaultUncaughtExceptionHandler(new UncaughtExceptionHandlerImpl());
+//
+//        HotelImpl hotel = new HotelImpl();
+//
+//        try (FileInputStream fis = new FileInputStream(getRoomsFile())) {
+//            init();
+//
+//            try (Reader reader = new InputStreamReader(fis)) {
+//                hotel.loadRooms(reader);
+//            }
+//        } catch (FileNotFoundException e) {
+//            log.error("Error", e);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
-    public void run(String[] args) {
-        Thread.setDefaultUncaughtExceptionHandler(new UncaughtExceptionHandlerImpl());
+//    private void init() throws IOException {
+//        initClientManager();
+//        initPriceService();
+//    }
 
-        HotelImpl hotel = new HotelImpl();
-
-        try (FileInputStream fis = new FileInputStream(getRoomsFile())) {
-            init();
-
-            try (Reader reader = new InputStreamReader(fis)) {
-                hotel.loadRooms(reader);
-            }
-        } catch (FileNotFoundException e) {
-            log.error("Error", e);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void init() throws IOException {
-        initClientManager();
-        initPriceService();
-    }
-
-    private void initPriceService() throws IOException {
-        PriceService priceService = PriceServiceImpl.getInstance();
-
-        try (Reader reader = new FileReader(Config.getSeasonalPricesFile())) {
-            priceService.loadPrices(reader);
-        }
-    }
+//    private void initPriceService() throws IOException {
+//        PriceService priceService = PriceServiceImpl.getInstance();
+//
+//        try (Reader reader = new FileReader(Config.getSeasonalPricesFile())) {
+//            priceService.loadPrices(reader);
+//        }
+//    }
 
     private void initClientManager() throws IOException {
         ClientManager clientManager = ClientManagerImpl.getInstance();

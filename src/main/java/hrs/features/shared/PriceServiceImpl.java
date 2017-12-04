@@ -1,7 +1,7 @@
 package hrs.features.shared;
 
-import hrs.csv.serialization.CsvDeserializerImpl;
-import hrs.csv.serialization.CsvSerializerImpl;
+//import hrs.csv.serialization.CsvDeserializerImpl;
+//import hrs.csv.serialization.CsvSerializerImpl;
 
 import java.io.IOException;
 import java.io.Reader;
@@ -17,9 +17,9 @@ import java.util.List;
 public final class PriceServiceImpl implements PriceService {
     private static PriceServiceImpl instance;
 
-    private final SeasonalPriceCsvDeserializer deserializer = new SeasonalPriceCsvDeserializer();
-
-    private final SeasonalPriceCsvSerializer serializer = new SeasonalPriceCsvSerializer();
+//    private final SeasonalPriceCsvDeserializer deserializer = new SeasonalPriceCsvDeserializer();
+//
+//    private final SeasonalPriceCsvSerializer serializer = new SeasonalPriceCsvSerializer();
 
     private final List<SeasonalPrice> seasonalPriceStore = new ArrayList<>();
 
@@ -35,18 +35,18 @@ public final class PriceServiceImpl implements PriceService {
         return instance;
     }
 
-    @Override
-    public void loadPrices(Reader reader) throws IOException {
-        seasonalPriceStore.clear();
-        seasonalPriceStore.addAll(
-                deserializer.deserialize(reader).readAll()
-        );
-    }
-
-    @Override
-    public void savePrices(Writer writer) throws IOException {
-        serializer.serialize(writer, seasonalPriceStore);
-    }
+//    @Override
+//    public void loadPrices(Reader reader) throws IOException {
+//        seasonalPriceStore.clear();
+//        seasonalPriceStore.addAll(
+//                deserializer.deserialize(reader).readAll()
+//        );
+//    }
+//
+//    @Override
+//    public void savePrices(Writer writer) throws IOException {
+//        serializer.serialize(writer, seasonalPriceStore);
+//    }
 
     @Override
     public void addSeasonalPrice(SeasonalPrice seasonalPrice) {
@@ -64,14 +64,14 @@ public final class PriceServiceImpl implements PriceService {
     }
 }
 
-class SeasonalPriceCsvDeserializer extends CsvDeserializerImpl<SeasonalPrice> {
-    SeasonalPriceCsvDeserializer() {
-        super(SeasonalPrice.class);
-    }
-}
-
-class SeasonalPriceCsvSerializer extends CsvSerializerImpl<SeasonalPrice> {
-    SeasonalPriceCsvSerializer() {
-        super(SeasonalPrice.class);
-    }
-}
+//class SeasonalPriceCsvDeserializer extends CsvDeserializerImpl<SeasonalPrice> {
+//    SeasonalPriceCsvDeserializer() {
+//        super(SeasonalPrice.class);
+//    }
+//}
+//
+//class SeasonalPriceCsvSerializer extends CsvSerializerImpl<SeasonalPrice> {
+//    SeasonalPriceCsvSerializer() {
+//        super(SeasonalPrice.class);
+//    }
+//}

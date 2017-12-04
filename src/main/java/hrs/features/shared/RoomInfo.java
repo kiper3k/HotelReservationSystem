@@ -10,14 +10,14 @@ public interface RoomInfo {
      *
      * @return room name.
      */
-    String getRoomName();
+//    String getRoomName();
 
     /**
      * Sets room name. Room name must not be null and must not be empty string.
      *
      * @param roomName new room name.
      */
-    void setRoomName(String roomName);
+//    void setRoomName(String roomName);
 
     /**
      * Returns room size.
@@ -33,9 +33,9 @@ public interface RoomInfo {
      */
     void setNumberOfBeds(int numberOfBeds);
 
-    int getNumberOfOccupiedBeds();
+//    int getNumberOfOccupiedBeds();
 
-    void setNumberOfOccupiedBeds(int numberOfOccupiedBeds);
+//    void setNumberOfOccupiedBeds(int numberOfOccupiedBeds);
 
     float getPrice();
 }

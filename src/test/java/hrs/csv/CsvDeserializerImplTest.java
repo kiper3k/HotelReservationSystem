@@ -17,25 +17,25 @@ import java.util.List;
  */
 public class CsvDeserializerImplTest {
 
-    @Test
-    public void deserialize() throws IOException {
-        PersonCsvDeserializerImpl csvDeserializer = new PersonCsvDeserializerImpl();
-
-        try (InputStream inputStream = getClass()
-                .getClassLoader()
-                .getResourceAsStream("person.csv")) {
-
-            try (Reader reader = new InputStreamReader(inputStream)) {
-                MappingIterator<Person> iterator = csvDeserializer.deserialize(reader);
-
-                while (iterator.hasNextValue()) {
-                    Person person = iterator.nextValue();
-
-                    System.out.println(person);
-                }
-            }
-        }
-    }
+//    @Test
+//    public void deserialize() throws IOException {
+//        PersonCsvDeserializerImpl csvDeserializer = new PersonCsvDeserializerImpl();
+//
+//        try (InputStream inputStream = getClass()
+//                .getClassLoader()
+//                .getResourceAsStream("person.csv")) {
+//
+//            try (Reader reader = new InputStreamReader(inputStream)) {
+//                MappingIterator<Person> iterator = csvDeserializer.deserialize(reader);
+//
+//                while (iterator.hasNextValue()) {
+//                    Person person = iterator.nextValue();
+//
+//                    System.out.println(person);
+//                }
+//            }
+//        }
+//    }
 
     @Test
     public void emptyTest() throws IOException {

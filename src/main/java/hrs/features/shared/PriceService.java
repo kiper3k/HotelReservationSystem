@@ -10,9 +10,9 @@ import java.time.LocalDate;
  * @since 30.11.2017
  */
 public interface PriceService {
-    void loadPrices(Reader reader) throws IOException;
-
-    void savePrices(Writer writer) throws IOException;
+//    void loadPrices(Reader reader) throws IOException;
+//
+//    void savePrices(Writer writer) throws IOException;
 
     void addSeasonalPrice(SeasonalPrice seasonalPrice);
 

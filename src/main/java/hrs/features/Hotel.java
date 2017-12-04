@@ -1,6 +1,7 @@
 
 package hrs.features;
 
+import hrs.CSVUtilsRooms;
 import hrs.features.client.Client;
 import hrs.features.reservation.ReservationInfo;
 import hrs.features.shared.Period;
@@ -16,9 +17,10 @@ import java.util.List;
  */
 public interface Hotel {
 
-    void loadRooms(Reader reader) throws IOException;
+//    void loadRooms(Reader reader) throws IOException;
+    void loadRooms(CSVUtilsRooms rooms) throws IOException;
 
-    void saveRooms(Writer writer) throws IOException;
+//    void saveRooms(Writer writer) throws IOException;
 
     /**
      * Adds new room.
@@ -26,14 +28,14 @@ public interface Hotel {
      * @param name    is a name of the room
      * @param nOfBeds is a number of beds in room
      */
-    void addRoom(String name, int nOfBeds, float price);
+//    void addRoom(String name, int nOfBeds, float price);
 
     /**
      * Deletes room.
      *
      * @param name is a name of the room
      */
-    void deleteRoom(String name);
+//    void deleteRoom(String name);
 
     /**
      * @param period jest okresem w którym chcemy zarezerwować pokoje
@@ -41,7 +43,7 @@ public interface Hotel {
      *               potrzebujemy pokoju dla jednej osoby i drugiego pokoju dla dwóch osób
      * @return
      */
-    List<ReservationInfo> findFreeRooms(Period period, List<Integer> rooms);
+//    List<ReservationInfo> findFreeRooms(Period period, List<Integer> rooms);
 
     /**
      * Makes reservation for client using Client and ReservationInfo.
@@ -50,6 +52,6 @@ public interface Hotel {
      * @param request is an information about reservation
      * @return
      */
-    boolean makeReservation(Client client, ReservationInfo request);
+//    boolean makeReservation(Client client, ReservationInfo request);
 
 }

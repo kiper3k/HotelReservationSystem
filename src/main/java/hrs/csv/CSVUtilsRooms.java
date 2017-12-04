@@ -32,7 +32,7 @@ public class CSVUtilsRooms {
     }
     
     public List readCSV(){
-        List<Room> rooms = new ArrayList<Room>();
+        List<Room> rooms = new ArrayList<>();
         int id;
         int nbOfPeople;
         float price;

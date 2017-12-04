@@ -1,7 +1,7 @@
 package hrs.features.client;
 
-import hrs.csv.serialization.CsvDeserializerImpl;
-import hrs.csv.serialization.CsvSerializerImpl;
+//import hrs.csv.serialization.CsvDeserializerImpl;
+//import hrs.csv.serialization.CsvSerializerImpl;
 import hrs.exception.ApplicationException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,9 +24,9 @@ public class ClientManagerImpl implements ClientManager {
 
     private static ClientManagerImpl instance;
 
-    private ClientCsvDeserializer deserializer = new ClientCsvDeserializer();
+//    private ClientCsvDeserializer deserializer = new ClientCsvDeserializer();
 
-    private ClientCsvSerializer serializer = new ClientCsvSerializer();
+//    private ClientCsvSerializer serializer = new ClientCsvSerializer();
 
     private List<Client> clients = new ArrayList<>();
 
@@ -41,12 +41,12 @@ public class ClientManagerImpl implements ClientManager {
     @Override
     public void loadClients(Reader reader) throws IOException {
         clients.clear();
-        clients.addAll(deserializer.deserialize(reader).readAll());
+//        clients.addAll(deserializer.deserialize(reader).readAll());
     }
 
     @Override
     public void saveClients(Writer writer) throws IOException {
-        serializer.serialize(writer, clients);
+//        serializer.serialize(writer, clients);
     }
 
     @Override
@@ -82,14 +82,14 @@ public class ClientManagerImpl implements ClientManager {
     }
 }
 
-class ClientCsvDeserializer extends CsvDeserializerImpl<Client> {
-    ClientCsvDeserializer() {
-        super(Client.class);
-    }
-}
-
-class ClientCsvSerializer extends CsvSerializerImpl<Client> {
-    ClientCsvSerializer() {
-        super(Client.class);
-    }
-}
+//class ClientCsvDeserializer extends CsvDeserializerImpl<Client> {
+//    ClientCsvDeserializer() {
+//        super(Client.class);
+//    }
+//}
+//
+//class ClientCsvSerializer extends CsvSerializerImpl<Client> {
+//    ClientCsvSerializer() {
+//        super(Client.class);
+//    }
+//}

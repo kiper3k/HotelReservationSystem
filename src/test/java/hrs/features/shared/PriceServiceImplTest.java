@@ -28,7 +28,7 @@ public class PriceServiceImplTest {
 
     @Before
     public void before() {
-        this.priceService = new PriceServiceImpl(Config.SEASONAL_PRICES);
+//        this.priceService = new PriceServiceImpl(Config.SEASONAL_PRICES);
     }
 
     @Test

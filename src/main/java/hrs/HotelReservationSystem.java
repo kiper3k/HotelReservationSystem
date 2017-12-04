@@ -42,7 +42,7 @@ public class HotelReservationSystem {
         CSVUtilsRooms csvUtilsRooms = new CSVUtilsRooms();
         rooms = csvUtilsRooms.readCSV();
         
-        for(int i=0; i<rooms.size(); i++){
+        for(int i=0; i<rooms.size(); i++){ 
             System.out.println(rooms.get(i));
         }
         
