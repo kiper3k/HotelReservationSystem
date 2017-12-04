@@ -10,32 +10,36 @@ import java.util.Objects;
  * @since 19.11.2017
  */
 public class RoomInfoImpl implements RoomInfo {
-
-    private int id;
+    
+    String roomName;
     private int numberOfBeds;
 //    private int numberOfOccupiedBeds;
     private float price;
     
 
-//    public RoomInfoImpl(String roomName, int numberOfBeds, float price) {
-////        setRoomName(roomName);
-//        setNumberOfBeds(numberOfBeds);
-//        setPrice(price);
-//    }
+    public RoomInfoImpl(String roomName, int numberOfBeds, float price) {
+        this.roomName = roomName;
+        this.numberOfBeds = numberOfBeds;
+        this.price = price;
+    }
+    
+    @Override
+    public String getRoomName(){
+        return roomName;
+    }
 
+    @Override
+    public void setRoomName(String roomName) {
+        this.roomName = Objects.requireNonNull(roomName);
 
-//    @Override
-//    public void setRoomName(String roomName) {
-//        this.roomName = Objects.requireNonNull(roomName);
-//
-//        if (Strings.isBlank(roomName)) {
-//            throw new ApplicationException("String value must not be blank!");
-//        }
-//
-//        if (Strings.isEmpty(roomName)) {
-//            throw new ApplicationException("String value must not be empty!");
-//        }
-//    }
+        if (Strings.isBlank(roomName)) {
+            throw new ApplicationException("String value must not be blank!");
+        }
+
+        if (Strings.isEmpty(roomName)) {
+            throw new ApplicationException("String value must not be empty!");
+        }
+    }
 
     @Override
     public int getNumberOfBeds() {
@@ -68,5 +72,10 @@ public class RoomInfoImpl implements RoomInfo {
 
     public void setPrice(float price) {
         this.price = price;
+    }
+    
+    public String toString(){
+        return "Id: " + this.roomName + "\tNumber of beds: " + this.numberOfBeds
+                + "\tPrice: " + this.price;
     }
 }

@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
   
-import hrs.CSVUtilsRooms;
+import hrs.csv.CSVUtilsRooms;
 import hrs.Room;
 
 /**
@@ -31,7 +31,7 @@ public class HotelImpl implements Hotel {
 //
 //    private final RoomInfoCsvSerializer serializer = new RoomInfoCsvSerializer();
 
-    private final List<Room> roomInfoStore = new ArrayList<>();
+    private final List<RoomInfo> roomInfoStore = new ArrayList<>();
 
     private final PriceService priceService = PriceServiceImpl.getInstance();
 
@@ -39,63 +39,63 @@ public class HotelImpl implements Hotel {
 
 
     @Override
-    public void loadRooms(CSVUtilsRooms rooms) throws IOException {
-        roomInfoStore.addAll(rooms.readCSV());
-//        roomInfoStore.clear();
-//        roomInfoStore.addAll(
-//                deserializer.deserialize(reader).readAll()
-//        );
+    public void loadRooms(CSVUtilsRooms csvUtilsRooms) throws IOException {
+        roomInfoStore.clear();
+        roomInfoStore.addAll(csvUtilsRooms.readCSV());
     }
     
 
 //    @Override
-//    public void saveRooms(Writer writer) throws IOException {
-//        serializer.serialize(writer, roomInfoStore);
-//    }
+    public void saveRooms(CSVUtilsRooms csvUtilsRooms) throws IOException {
+         csvUtilsRooms.saveCSV(roomInfoStore);
+    }
 
-//    @Override
-//    public void addRoom(String name, int nOfBeds, float price) {
-//        boolean nameIsUnique = roomInfoStore
-//                .parallelStream()
-//                .noneMatch(nameEqualTo(name));
-//
-//        if (nameIsUnique) {
-//            roomInfoStore.add(new RoomInfoImpl(name, nOfBeds, price));
-//        } else {
+    @Override
+    public void addRoom(String name, int nOfBeds, float price) {
+        boolean nameIsUnique = roomInfoStore
+                .parallelStream()
+                .noneMatch(nameEqualTo(name));
+        
+
+        if (nameIsUnique) {
+            roomInfoStore.add(new RoomInfoImpl(name, nOfBeds, price));
+        } else {
 //            throw new ApplicationException("Nazwa pokoju '{0}' jest juz zajeta.", name);
-//        }
-//    }
+            System.out.println("Podana nazwa pokoju istnieje juz w systemie.");
+        }
+    }
 
-//    @Override
-//    public void deleteRoom(String name) {
-//        roomInfoStore.removeIf(nameEqualTo(name));
-//    }
+    @Override
+    public void deleteRoom(String name) {
+        roomInfoStore.removeIf(nameEqualTo(name));
+    }
 
-//    @Override
-//    public List<ReservationInfo> findFreeRooms(Period period, List<Integer> rooms) {
-//        LocalDate startDate = period.getStartDate();
-//        LocalDate endDate = period.getEndDate();
-//
-//
-//
-//        return null;
-//    }
+    @Override
+    public List<ReservationInfo> findFreeRooms(Period period, List<Integer> rooms) {
+        LocalDate startDate = period.getStartDate();
+        LocalDate endDate = period.getEndDate();
 
-//    @Override
-//    public boolean makeReservation(Client client, ReservationInfo request) {
-//        RoomInfo room = request.getRoomInfo();
-//        priceService.getPrice(room, LocalDate.now());
-//
-//        return false;
-//    }
 
-//    private Predicate<RoomInfo> nameEqualTo(String name) {
-//        return roomInfo -> Objects.equals(roomInfo.getRoomName(), name);
-//    }
 
-//    public List<RoomInfo> getRooms() {
-//        return roomInfoStore;
-//    }
+        return null;
+    }
+
+    @Override
+    public boolean makeReservation(Client client, ReservationInfo request) {
+        RoomInfo room = request.getRoomInfo();
+        priceService.getPrice(room, LocalDate.now());
+
+        return false;
+    }
+
+
+    public List<RoomInfo> getRooms() {
+        return roomInfoStore;
+    }
+    
+    private Predicate<RoomInfo> nameEqualTo(String name) {
+        return roomInfo -> Objects.equals(roomInfo.getRoomName(), name);
+    }
 }
 
 //class RoomInfoCsvDeserializer extends CsvDeserializerImpl<RoomInfo> {

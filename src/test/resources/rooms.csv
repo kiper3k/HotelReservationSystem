@@ -1,4 +1,5 @@
-id,nbOfPeople,price
-1,2,300
-2,1,150
-3,4,400
+roomName,nbOfBeds,price
+Room1,1,150.0
+Room2,4,550.0
+Room3,2,275.0
+Room4,3,500.0

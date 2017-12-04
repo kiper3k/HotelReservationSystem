@@ -1,10 +1,12 @@
 package hrs;
 
+import hrs.csv.CSVUtilsRooms;
 import hrs.exception.UncaughtExceptionHandlerImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import hrs.features.HotelImpl;
+import hrs.features.shared.RoomInfo;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -34,22 +36,40 @@ public class HotelReservationSystem {
      * This is main application entry.
      *
      * @param args the command line arguments
+     * @throws java.io.IOException
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+        Thread.setDefaultUncaughtExceptionHandler(new UncaughtExceptionHandlerImpl());
         
-        List<Room> rooms = new ArrayList<Room>();
+        HotelImpl hotel = new HotelImpl();
         
         CSVUtilsRooms csvUtilsRooms = new CSVUtilsRooms();
-        rooms = csvUtilsRooms.readCSV();
+//        rooms = csvUtilsRooms.readCSV();
+        hotel.loadRooms(csvUtilsRooms);
         
+        List<RoomInfo> rooms = new ArrayList<>();
+        rooms = hotel.getRooms();
         for(int i=0; i<rooms.size(); i++){ 
             System.out.println(rooms.get(i));
         }
         
+        hotel.addRoom("Room4", 3, 500);
+        rooms = hotel.getRooms();
+        for(int i=0; i<rooms.size(); i++){ 
+            System.out.println(rooms.get(i));
+        }
+        hotel.addRoom("Room4", 3, 500);
+        
+        hotel.saveRooms(csvUtilsRooms);
+        
+        
+
+        CSVUtilsUsers csvUtilsUsers = new CSVUtilsUsers();
+//        users = csvUtilsUsers.readCSV();
+        
         List<User> users = new ArrayList<User>();
         
-        CSVUtilsUsers csvUtilsUsers = new CSVUtilsUsers();
-        users = csvUtilsUsers.readCSV();
+        
         
 //        for(int i=0; i<users.size(); i++){
 //            System.out.println(users.get(i));
