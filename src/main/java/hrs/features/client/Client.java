@@ -1,5 +1,7 @@
 package hrs.features.client;
 
+import hrs.features.shared.Privileges;
+import java.time.LocalDate;
 import java.util.Objects;
 
 /**
@@ -7,12 +9,16 @@ import java.util.Objects;
  * @since 14.11.2017
  */
 public class Client {
+    
+    private int id;
     private String firstName;
-
     private String lastName;
-
+    private LocalDate birthDate;
+    private String login;
+    private String password;
+    private Privileges privileges = Privileges.CLIENT;
+    
     private String email;
-
     private String address;
 
     private Client() {
@@ -24,9 +30,27 @@ public class Client {
         this.email = email;
         this.address = address;
     }
+    
+    public Client(int id, String firstName, String lastName, LocalDate birthDate,
+            String login, String password) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.birthDate = birthDate;
+        this.login = login;
+        this.password = password;
+    }
 
     public static Builder builder() {
         return new Builder();
+    }
+    
+    public int getId(){
+        return id;
+    }
+    
+    public void setId(int id){
+        this.id = id;
     }
 
     public String getEmail() {
@@ -59,6 +83,30 @@ public class Client {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+    
+    public LocalDate getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(LocalDate birthDate) {
+        this.birthDate = birthDate;
+    }
+    
+    public String getLogin(){
+        return this.login;
+    }
+    
+    public void setLogin(String login){
+        this.login = login;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     
