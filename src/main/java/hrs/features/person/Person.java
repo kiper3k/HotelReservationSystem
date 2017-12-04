@@ -1,4 +1,4 @@
-package hrs.csv;
+package hrs.features.person;
 
 import java.time.LocalDate;
 import java.util.Objects;

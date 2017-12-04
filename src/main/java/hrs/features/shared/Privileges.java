@@ -1,4 +1,4 @@
-package hrs.features.user;
+package hrs.features.shared;
 
 /**
  * @author Marta Motyka

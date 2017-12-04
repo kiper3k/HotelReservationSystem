@@ -1,6 +1,7 @@
 package hrs;
 
 import hrs.csv.CSVUtilsRooms;
+import hrs.csv.CSVUtilsUsers;
 import hrs.exception.UncaughtExceptionHandlerImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -68,12 +69,13 @@ public class HotelReservationSystem {
 //        users = csvUtilsUsers.readCSV();
         
         List<User> users = new ArrayList<User>();
+        users = csvUtilsUsers.readCSV();
         
         
         
-//        for(int i=0; i<users.size(); i++){
-//            System.out.println(users.get(i));
-//        }
+        for(int i=0; i<users.size(); i++){
+            System.out.println(users.get(i));
+        }
         
         
 //        Room r = new Room(5,5,50);

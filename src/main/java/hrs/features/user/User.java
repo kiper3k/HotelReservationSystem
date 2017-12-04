@@ -1,38 +1,66 @@
 package hrs.features.user;
 
+import hrs.features.shared.Privileges;
+import java.time.LocalDate;
+
 /**
  * @author Marta Motyka
  * @since 21.11.2017
  */
 public class User {
-    private String name;
+    private int id;
+    private String firstName;
+    private String lastName;
+    private LocalDate birthDate;
     private String login;
     private String password;
-    private Privileges privileges;
+    private Privileges privileges = Privileges.ADMIN;
 
     private User() {
     }
     
-    public User(String name, String login, String password) {
-        this.name = name;
+    public User(int id, String firstName, String lastName,LocalDate birthDate,
+            String login, String password) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.birthDate = birthDate;
         this.login = login;
         this.password = password;
-        this.privileges = privileges;
+//        this.privileges = privileges;
+    }
+    
+    public int getId(){
+        return id;
+    }
+    
+    public void setId(int id){
+        this.id = id;
     }
 
-    public User(String name, String login, String password, Privileges privileges) {
-        this.name = name;
-        this.login = login;
-        this.password = password;
-        this.privileges = privileges;
+
+    public String getFirstName() {
+        return firstName;
     }
 
-    public String getName() {
-        return name;
+    public void setName(String firstName) {
+        this.firstName = firstName;
+    }
+    
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+    
+    public LocalDate getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(LocalDate birthDate) {
+        this.birthDate = birthDate;
     }
     
     public String getLogin(){
@@ -57,5 +85,15 @@ public class User {
 
     public void setPrivileges(Privileges privileges) {
         this.privileges = privileges;
+    }
+    
+    @Override
+    public String toString() {
+        return "Person{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", birthDate=" + birthDate +
+                '}';
     }
 }

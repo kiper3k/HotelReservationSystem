@@ -20,7 +20,7 @@ public interface Hotel {
 //    void loadRooms(Reader reader) throws IOException;
     void loadRooms(CSVUtilsRooms csvUtilsRooms) throws IOException;
 
-//    void saveRooms(List rooms) throws IOException;
+    void saveRooms(CSVUtilsRooms csvUtilsRooms) throws IOException;
 
     /**
      * Adds new room.

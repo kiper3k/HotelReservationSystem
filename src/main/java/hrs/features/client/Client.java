@@ -9,16 +9,6 @@ import java.util.Objects;
 public class Client {
     private String firstName;
 
-    @Override
-    public String toString() {
-        return "Client{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
-                ", address='" + address + '\'' +
-                '}';
-    }
-
     private String lastName;
 
     private String email;
@@ -71,6 +61,17 @@ public class Client {
         this.lastName = lastName;
     }
 
+    
+    @Override
+    public String toString() {
+        return "Client{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", address='" + address + '\'' +
+                '}';
+    }
+    
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

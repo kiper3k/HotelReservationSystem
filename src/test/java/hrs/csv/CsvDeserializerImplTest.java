@@ -3,6 +3,7 @@ package hrs.csv;
 import com.fasterxml.jackson.databind.MappingIterator;
 import com.fasterxml.jackson.dataformat.csv.CsvMapper;
 import com.fasterxml.jackson.dataformat.csv.CsvSchema;
+import hrs.features.person.Person;
 import org.junit.Test;
 
 import java.io.*;
