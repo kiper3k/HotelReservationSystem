@@ -54,12 +54,10 @@ public class HotelReservationSystem {
             System.out.println(rooms.get(i));
         }
         
-        hotel.addRoom("Room4", 3, 500);
         rooms = hotel.getRooms();
         for(int i=0; i<rooms.size(); i++){ 
             System.out.println(rooms.get(i));
         }
-        hotel.addRoom("Room4", 3, 500);
         
         hotel.saveRooms(csvUtilsRooms);
         
@@ -78,8 +76,22 @@ public class HotelReservationSystem {
         }
         
         
-//        Room r = new Room(5,5,50);
-//        System.out.println(r);
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String input;
+        while (true) {
+            input = br.readLine();
+            
+            if (input == "add"){
+                //collect info
+                hotel.addRoom("Room4", 3, 500);
+            }
+            else if (input == "list") {
+                rooms = hotel.getRooms();
+                for(int i=0; i<rooms.size(); i++){ 
+                    System.out.println(rooms.get(i));
+                }
+            }
+        }
         
     }
 }
